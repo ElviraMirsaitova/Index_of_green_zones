@@ -1,0 +1,10 @@
+def calculate_green_index(spisok_zon):
+    index_zon = {}
+    for zona in spisok_zon:
+        all_green_zona = zona["green_zones"]
+        filter_green_zona = [x for x in all_green_zona if x is not None]
+        index = round(sum(filter_green_zona) / zona["territory_area"], 3)
+        assert isinstance(index, object)
+        index_zon.update({zona["territory_name"]: index})
+
+    return index_zon
